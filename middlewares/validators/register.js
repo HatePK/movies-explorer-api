@@ -3,10 +3,11 @@ const validator = require('validator');
 
 const register = celebrate({
   body: {
-    name: Joi.string().min(2).max(30).messages({
-      'string.min': 'Минимум 2 символа',
-      'string.max': 'Максимум 30 символов',
-    }),
+    name: Joi.string().required().min(2).max(30)
+      .messages({
+        'string.min': 'Минимум 2 символа',
+        'string.max': 'Максимум 30 символов',
+      }),
     password: Joi.string().required().messages({
       'any.required': 'Обязательное поле',
     }),

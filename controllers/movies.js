@@ -54,7 +54,8 @@ const deleteMovie = (req, res, next) => {
         throw new NotFound('Нет фильма с таким id');
       } else if (movie.owner.toString() === _id) {
         Movie.deleteOne({ _id: movieId })
-          .then((deletedMovie) => res.status(200).send(deletedMovie));
+          .then((deletedMovie) => res.status(200).send(deletedMovie))
+          .catch(next);
       } else throw new Forbidden('Нет прав для удаления фильма');
     })
     .catch(next);

@@ -1,4 +1,5 @@
 const userRoute = require('./users');
-const MovieRoute = require('./movies');
+const movieRoute = require('./movies');
+const authRoute = require('./auth');
 
-module.exports = { userRoute, MovieRoute }
+module.exports = { userRoute, movieRoute, authRoute };

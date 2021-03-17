@@ -17,12 +17,8 @@ const register = (req, res, next) => {
     .then((hash) => User.create({
       name, email, password: hash,
     }))
-    .then((user) => {
-      const newUserEmail = user.email;
-      User.findOne({ email: newUserEmail })
-        .then((newUser) => {
-          res.send(newUser);
-        });
+    .then(() => {
+      res.send({ name, email });
     })
     .catch(next);
 };

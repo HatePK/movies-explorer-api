@@ -42,10 +42,9 @@ const createMovie = celebrate({
     nameEN: Joi.string().required().messages({
       'any.required': 'Обязательное поле',
     }),
-    movieId: Joi.string().required().length(24).hex()
-      .messages({
-        'any.required': 'Обязательное поле',
-      }),
+    movieId: Joi.number().required().messages({
+      'any.required': 'Обязательное поле',
+    }),
   },
 });
 
